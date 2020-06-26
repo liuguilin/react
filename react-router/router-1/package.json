@@ -29,12 +29,15 @@
         "url-loader": "^4.1.0",
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.11",
-        "webpack-dev-server": "^3.11.0"
+        "webpack-dev-middleware": "^3.7.2",
+        "webpack-dev-server": "^3.11.0",
+        "webpack-hot-middleware": "^2.25.0"
     },
     "dependencies": {
         "@babel/polyfill": "^7.10.1",
         "@babel/runtime": "^7.10.2",
         "express": "^4.17.1",
+        "open-browser-webpack-plugin": "0.0.5",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-router": "^5.2.0",

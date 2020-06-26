@@ -60,8 +60,8 @@ ReactDOM.render(
     <Fragment>
         <HashRouter>
             {/* <div> */}
-            <Redirect to="/about" from="/" exact />
-            {/* <Route exact path="/" component={App} /> */}
+            {/* <Redirect to="/about" from="/" exact /> */}
+            <Route exact path="/" component={App} />
             <Route path="about" component={About} />
             <Route path="inbox" component={Inbox}></Route>
             {/* </div> */}
@@ -70,3 +70,7 @@ ReactDOM.render(
 
     document.getElementById("main")
 );
+
+if (module.hot && process.env.NODE_ENV !== "production") {
+    module.hot.accept();
+}
