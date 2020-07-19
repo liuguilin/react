@@ -27,7 +27,7 @@ class App extends React.Component {
                         <Link to="/inbox">Inbox</Link>
                     </li>
                 </ul>
-                {/* {this.props.children} */}
+                {this.props.children}
             </div>
         );
     }
@@ -57,16 +57,14 @@ class Inbox extends React.Component {
 // }
 
 ReactDOM.render(
-    <Fragment>
-        <HashRouter>
-            {/* <div> */}
-            {/* <Redirect to="/about" from="/" exact /> */}
-            <Route exact path="/" component={App} />
-            <Route path="about" component={About} />
-            <Route path="inbox" component={Inbox}></Route>
-            {/* </div> */}
-        </HashRouter>
-    </Fragment>,
+    <HashRouter>
+        <Redirect to="/App" from="/" exact />
+        {/* <Route path="/" component={App}></Route> */}
+        <App>
+            <Route path="/inbox" component={Inbox} />
+            <Route path="/about" component={About} />
+        </App>
+    </HashRouter>,
 
     document.getElementById("main")
 );

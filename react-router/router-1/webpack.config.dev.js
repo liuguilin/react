@@ -25,8 +25,7 @@ module.exports = {
     mode: "development", // 开发模式, 生产模式 'production' 会压缩代码
     module: {
         // 加载 css less
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/, // js 中 require css
                 use: ["style-loader", "css-loader"],
             },
@@ -51,24 +50,20 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|m4a)$/, // 加载js img 对象、css 中的图片、音频等资源
-                use: [
-                    {
-                        loader: "url-loader",
-                        options: {
-                            //图片大小小于等于limit值，则会以base64形式加载，不会发请求，大于这个值则用file-loader加载
-                            limit: 200 * 1024,
-                        },
+                use: [{
+                    loader: "url-loader",
+                    options: {
+                        //图片大小小于等于limit值，则会以base64形式加载，不会发请求，大于这个值则用file-loader加载
+                        limit: 200 * 1024,
                     },
-                ],
+                }, ],
             },
             {
                 test: /\.html$/, // 加载 img 标签中的图片
-                use: [
-                    {
-                        loader: "html-withimg-loader",
-                        options: {},
-                    },
-                ],
+                use: [{
+                    loader: "html-withimg-loader",
+                    options: {},
+                }, ],
             },
         ],
     },
@@ -85,6 +80,7 @@ module.exports = {
             },
             hash: true, // 增加hash，避免缓存
         }),
+        new webpack.NoEmitOnErrorsPlugin(), //保证出错时页面不阻塞，且会在编译结束后报错
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new OpenBrowserPlugin({
